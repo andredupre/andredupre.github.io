@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Andre's Amazing Website</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Patua+One|Raleway" rel="stylesheet">
+        <style>
+            body {
+                background: #252525;
+                color: #82F986;
+                padding: 10px;
+                font-family: raleway;
+            }
+            header {
+                font-size: 1.5em;
+                font-weight: bold;
+                font-family: Patua One;
+                    
+            }
+            [id=all-contents] {
+                max-width: 800px;
+                margin: auto;
+            }
+    
+            /* navigation menu */
+            nav {
+                margin: 0 auto;
+                margin-bottom: 20px;
+                display: flex;
+                padding: 10px;
+                border-radius: 5px;
+                border: solid 2px;
+                background: linear-gradient(-60deg, #49AB30, #82F986); /* Standard syntax (must be last) */
+            }
+            nav header {
+                display: flex;
+                align-items: center;
+                color: #252525;
+                flex: 1;
+            }
+            nav ul {
+                list-style-image: none;
+            }
+            nav li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            nav a {
+                text-decoration: none;
+                font-size: 18px;
+                color: #252525;
+                font-family: raleway;
+            }
+            
+    
+            /* main container area beneath menu */
+            main {
+                background: #252525;
+                display: flex;
+                border-radius: 5px;
+            }
+            [class=sidebar] {
+                margin-right: 25px;
+                padding: 10px;
+            }
+            [class=sidebar] img {
+                width: 200px;
+            }
+            [class=content] {
+                flex: 1;
+                padding: 15px;
+            }
+            [class=interests] header {
+                font-size: 1.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="all-contents">
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="portfolio.html">PORTFOLIO</a></li>
+                </ul>    
+            </nav>
+            <main>
+                <div class="sidebar">
+                    <svg width="200" height="200">
+                    <defs>
+                    <pattern id="image" patternUnits="userSpaceOnUse" height="200" width="200">
+                    <image x="-10" y="-100" height="400" width="400" xlink:href="http://www.twitrcovers.com/wp-content/uploads/2013/08/Piano-Grayscale-l.jpg"></image>
+                    </pattern>
+                    </defs>
+                    <circle id='center' cx="100" cy="100" r="100" fill="url(#image)"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <header>Andre's Glorious Website</header>
+                    <p>Hello, here is some text about me! I like paragraphs and all, but I <i>really</i> like navigation bars and typeface pairings.
+                    
+                    And don't even get me started on <i>text attributes.</i></p> 
+                    
+                    <p>Really, please don't, because I don't know much about them at the moment beyond italics.
+                    
+                    <i>Instead,</i> <b>I'll</b> <i>just</i> <b>overcompensate</b> <i>with</i> <b>what</b> <i>I</i> <b>know</b> <i>italics</i> non-italics <i>italics</i> non-italics <i>italics</i>
+                    
+                    </p>
+                    <section class="interests">
+                        <header>Interests</header>
+                        <ul>
+                            <li>Paper</li>
+                            <li>Birds and cats fighting</li>
+                            <li>Hamburger patties</li>
+                            <li>Getting schwifty</li>
+                            <li>Walking</li>
+                        </ul>
+                    </section>
+                </div>
+            </main>
+        </div>    
+    </body>
+</html>

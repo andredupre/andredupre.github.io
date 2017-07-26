@@ -1,0 +1,16 @@
+Eloquent Javascript Chapter 1: Values, Types, and Operators
+
+--- Values ---
+
+Bits are two-value, binary things.
+
+Here are eight bits used to represent any numeric value:
+
+   0   0   0   0   1   1   0   1
+ 128  64  32  16   8   4   2   1
+
+So that’s the binary number 00001101, 
+or 8 + 4 + 1, which equals 13.
+
+
+

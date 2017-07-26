@@ -14,7 +14,7 @@
 
 var animal = {};
 animal.species = 'dog';
-animal['name'] = 'sebastian';
+animal['name'] = 'Sebastian';
 animal.noises = [];
 console.log(animal);
 
@@ -65,7 +65,7 @@ console.log(animal);
 
 var animals = [];
 animals.push(animal);
-console.log(animal);
+console.log(animals);
 var duck = {species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] };
 animals.push(duck);
 console.log(animals);
@@ -97,6 +97,8 @@ console.log(friends);
 animals.friends = somePet;
 
 console.log(animals);
+
+fish["friends"] = friends;
 
 /** 
  * Nice work! You're done Part 1. Pat yourself on the back and 

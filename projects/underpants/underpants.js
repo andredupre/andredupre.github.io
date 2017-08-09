@@ -231,9 +231,19 @@ _.partition = function(array, func) {
     // return array composed of two sub arrays:
         // 1. a sub array composed of all truthy values returned by <func>
         // 2. a sub array composed of all falsey values returned by <func>
+    var resultOne = [];
+    var resultTwo = [];
+    var resultThree = [];
     _.each(array, function(element, index, collection) {
-        
-    })
+        if (func(element, index, array)) {
+            resultOne.push(element);
+        } else {
+            resultTwo.push(element);
+        }
+    });
+    resultThree.push(resultOne);
+    resultThree.push(resultTwo);
+    return resultThree;
 };
 /** _.partition()
 * Arguments:
@@ -254,7 +264,21 @@ _.partition = function(array, func) {
 }
 */
 
-
+_.unique = function(array) {
+    // create new array to contain deduplicated values
+    // use each on <array> with first argument as <array>, and second argument as anonymous function
+    // 
+    // use indexOf
+    // return a new de-duplicated array
+    var result = [];
+    
+    _.each(array, function(element, index, collection) {
+        if (_.indexOf(result, element) === -1) {
+            result.push(element)
+        }
+    })
+    return result;
+}
 /** _.unique()
 * Arguments:
 *   1) An array
@@ -265,6 +289,13 @@ _.partition = function(array, func) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.map = function(collection, func) {
+    var newArray = [];
+    _.each(collection, function(element, index, collection) {
+        newArray.push(func(element, index, collection));
+    })
+    return newArray;
+}
 
 /** _.map()
 * Arguments:
@@ -282,7 +313,14 @@ _.partition = function(array, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-
+_.pluck = function(arrayObj, property) {
+    var newArray = [];
+    _.map(arrayObj, function(element, index, array) {
+        newArray.push(element[property]);
+    })
+    
+    return newArray;
+}
 /** _.pluck()
 * Arguments:
 *   1) An array of objects
@@ -312,6 +350,24 @@ _.contains = function(array, value) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.every = function(collection, func) {
+    // check if array or object
+    // call function for every element -- access every element by looping over collection
+    // if the function returns true every time when run with current element, return true
+    // if the function ever returns false, return false
+    // use _.each to loop in this function
+    var result = true;
+    _.each(collection, function(e, i, c) {
+        if (func === undefined) {
+            func = function(e, i, c) {
+                return !!e;
+            };
+        } if (func(e, i, c) === false) {
+            result = false;
+        }
+    });
+    return result;
+};
 
 /** _.every()
 * Arguments:
@@ -334,7 +390,19 @@ _.contains = function(array, value) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-
+_.some = function(collection, func) {
+    var result = false;
+    _.each(collection, function(e, i, c) {
+        if (func === undefined) {
+            func = function(e, i, c) {
+                return e;
+            };
+        } if (func(e, i, c) === true) {
+            result = true;
+        }
+    });
+    return result;
+}
 /** _.some()
 * Arguments:
 *   1) A collection
@@ -356,7 +424,37 @@ _.contains = function(array, value) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-
+_.reduce = function(array, func, seed) {
+    // call <func> for each iteration in loop
+    // loop over <array>
+    // store value for each time <func> runs in the <seed>
+    // return the <seed>
+    
+    ////// JOHN'S WAY ////////////////////////////////
+    ////// replace param <func> with <combine>  //////
+    //
+    // let combined = seed, i = 0;
+    // if(combined === undefined) {
+    //     combined = array [0];
+    //     i = 1;
+    // }
+    //
+    // for(; i < array.length; i++) {
+    //     combined = combine(combined, array[i], i, array);
+    // }
+    // return combined;
+    //////////////////////////////////////////////////
+    //////////////////////////////////////////////////
+    
+    _.each(array, function(e, i, c) {
+       if (seed === undefined) {
+        seed = array[0];
+        } else {
+        seed = func(seed, e, i, c);
+        }
+    });
+    return seed;
+}
 /** _.reduce()
 * Arguments:
 *   1) An array
@@ -376,6 +474,15 @@ _.contains = function(array, value) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.extend = function (obj1) {
+    var args = Array.from(arguments);
+    _.each(arguments, function (element, index, array) {
+        for (var key in element) {
+            obj1[key] = element[key];
+        }
+    });
+    return obj1;
+}
 
 /** _.extend()
 * Arguments:

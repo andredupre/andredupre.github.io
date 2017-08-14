@@ -88,38 +88,64 @@ function addFriend(name, object) {
 
 // NOT MATCHING NAME TO OBJECT.KEY[i]
 function isFriend(name, object) {
-  for (var i = 0; i < Object.values(object).length; i++) {
-    console.log(Object.values(object)[i]);
-    if (Object.values(object)[i] === name) {
-      return true;
-    }
-  }
-  return false;
+//   for (var i = 0; i < Object.values(object).length; i++) {
+//     // console.log(Object.values(object)[i]);
+//     if (Object.values(object)[i] === name) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+if (Object.keys(object).length < 1) {
+        return false;
+    } else if (Object.keys(object).length > 0) {
+        for (var i = 0; i < object["friends"].length; i++) {
+            if (object["friends"][i] === name) {
+                return true;
+            }
+        }
+        return false;
+    } 
 }
 
 function nonFriends(name, list) {
+  // console.log(Object.values(list)); 
   for (var i = 0; i < Object.values(list).length; i++) {
+    console.log(list[i]["friends"] + list[i]["name"]);
+    // if (Object.key(list["name"]) === name) {
+      // console.log(list[i]["name"]);  
+      // var a = name + list["friends"];
+      // var b = a - list["names"];
+    }
     
-    
-  }
-}
+      
+  };
+  
+      
+// }
+
 
 
 
 function updateObject(object, key, value) {
-  
+  object[key] = value;
+    return object;
 }
 
 
 
 function removeProperties(object, array) {
-  
+  // for (var i = 0; i < array.length; i++) {
+  //   if Object.values(object) === array[i]
+    
 }
  
 
 
 function dedup(array) {
-  
+  var dedupSet = new Set(array);
+  var dedupArray = Array.from(dedupSet);
+  return dedupArray;
 }
 
 
